@@ -1,0 +1,53 @@
+//Smallest distinct window
+class Solution {
+    public int findSubString( String str) {
+        int length = str.length();
+
+        HashSet<Character> set = new HashSet<>();
+
+        for(int i=0; i<str.length(); i++){
+
+            set.add(str.charAt(i));
+
+        }
+
+        int l=0, r=0, count = 0;
+
+        HashMap<Character,Integer> hm = new HashMap<>();
+
+        while(r<str.length()){
+
+            char ch = str.charAt(r);
+
+            hm.put(ch, hm.getOrDefault(ch,0)+1);
+
+            if(hm.get(ch)==1)
+
+                count++;
+
+            while(count==set.size()){
+
+                int n = r-l+1;
+
+                length = Math.min(length, n);
+
+                
+
+                char c = str.charAt(l);
+
+                hm.put(c,hm.get(c)-1);
+
+                if(hm.get(c)==0)
+
+                    count--;
+
+                l++;    
+
+            }
+
+            r++;
+
+        }
+        return length;
+    }
+}
