@@ -1,0 +1,32 @@
+//time conversion
+public static String timeConversion(String s) {
+    int hourInt = Integer.parseInt(s.substring(0,2));
+        String time = s.substring(8);
+        time = time.toLowerCase();
+        boolean night = time.equals("pm");
+        if(night){
+            if(hourInt != 12){ // check for time after noon PM
+                hourInt += 12;
+                return "" + hourInt + s.substring(2,8);
+            }
+        } else{
+            if(hourInt == 12){ // check for midnight AM case
+                return "00" + s.substring(2,8);
+            }
+        }
+        return s.substring(0,8);
+    }
+
+}
+
+
+//Minimax sum
+public static void miniMaxSum(List<Integer> arr) {
+     arr = arr.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+        long sum = 0;
+        for(int i=0;i<arr.size();i++){
+            sum += arr.get(i);
+        }
+        System.out.printf("%d %d", sum-arr.get(arr.size()-1),sum-arr.get(0));
+    }
+}
