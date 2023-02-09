@@ -110,3 +110,68 @@ class Solution {
         System.out.println(pairs);
     }
 }
+
+//breaking the records
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] score = new int[n];
+        for(int score_i=0; score_i < n; score_i++){
+            score[score_i] = in.nextInt();
+        }
+        // your code goes here
+        int most = score[0];
+        int least = score[0];
+        int mr = 0;
+        int lr = 0;
+        for( int i = 1; i < n; i++ ){
+            if( score[i] > most ){
+                mr++;
+                most = score[i];
+            }
+            if( score[i] < least ){
+                lr++;
+                least = score[i];
+            }
+        }
+        
+        System.out.print(mr + " " + lr);
+    }
+}
+
+//jesse and cookies
+public class Solution {
+
+    public static void main(String[] args) {
+    
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int k=scan.nextInt();
+        PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
+        for(int i=0;i<n;i++)
+            {
+            queue.add(scan.nextInt());
+        }
+        int count=0;
+        while(queue.peek()<k)
+            {
+            if(queue.size()>=2)
+                {
+            int x=queue.remove();
+            int y=queue.remove();
+            y=x+2*y;
+            queue.add(y);
+            count++;
+            }
+            else
+                {
+                count=-1;
+                break;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
