@@ -34,3 +34,73 @@ public static List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
         
         return results;
     }
+    
+    //counter game
+    public static String counterGame(long n) {
+        String bString = Long.toBinaryString(n);
+        int bSum = Stream.of(bString.split(""))
+                .mapToInt(Integer::parseInt)
+                .sum();
+        int attempt = bSum + bString.length() - bString.lastIndexOf("1");
+        return attempt % 2 != 0 ? "Louise" : "Richard";
+    }
+    
+    //recursive digit sum
+    public static int superDigit(String n, int k) {
+        long superDigit = k * Stream.of(n.split(""))
+                .mapToLong(Long::parseLong)
+                .sum();
+        if (superDigit > 10) {
+           superDigit = superDigit(String.valueOf(superDigit), 1);
+        }
+        return (int) superDigit;
+    }
+    
+    //sherlock and array
+    public static String balancedSums(List<Integer> arr) {
+        int size = arr.size();
+        int[] leftSide = new int[size];
+        int[] rightSide = new int[size];
+        leftSide[0] = 0;
+        rightSide[size - 1] = 0;
+        for(int i = 1; i < size; i++) // left side map initialization
+        {
+            leftSide[i] = arr.get(i - 1) + leftSide[i - 1];
+        }
+        for(int i = size - 2; i >= 0; i--) // right side map initialization
+        {
+            rightSide[i] = arr.get(i + 1) + rightSide[i + 1];
+        }
+        for(int i = 0; i < arr.size(); i++)
+        {
+           if(leftSide[i] == rightSide[i])
+           {
+               return "YES";
+           }
+        }
+        return "NO";
+    }
+    
+    //sum or xor
+    public static long sumXor(long n) {
+    // Write your code here
+    if(n == 0) return 1;
+        String binary = Long.toBinaryString(n);
+        int sum = Stream.of(binary.split(""))
+                .mapToInt(Integer::parseInt)
+                .sum();
+        return (long) Math.pow(2, binary.length() - sum);
+    }
+    
+    //sale by match
+    public static int sockMerchant(int n, List<Integer> ar) {
+    // Write your code here
+    Set<Integer> intSet = new HashSet<>(ar);
+       int pairs = 0;
+       for(Integer i: intSet){
+           pairs += Math.floorDiv(Collections.frequency(ar, i),2);
+       }
+       return pairs;
+    }
+
+
