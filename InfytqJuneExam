@@ -1,0 +1,155 @@
+//Alternate Even Odd Series
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.nextLine();
+        ArrayList<Character> l=new ArrayList<>();
+        ArrayList<Character> l1=new ArrayList<>();
+        int c=0;
+        for(int i=0;i<a.length();i++)
+        {
+            if(!Character.isLetter(a.charAt(i))&&!Character.isDigit(a.charAt(i)))
+            {
+                l1.add(a.charAt(i));
+                c++;
+            }
+            if(Character.isDigit(a.charAt(i)))
+            {
+                l.add(a.charAt(i));
+            }
+        }
+        String d="";
+        String d1="";
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i)%2==0)
+            {
+                d=d+l.get(i);
+            }
+        }
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i)%2!=0)
+            {
+                d1=d1+l.get(i);
+            }
+            
+        }
+        ArrayList<Character> p=new ArrayList<>();
+        for(int i=0;i<d.length();i++)
+        {
+            p.add(d.charAt(i));
+        }
+        ArrayList<Character> p1=new ArrayList<>();
+        for(int i=0;i<d1.length();i++)
+        {
+            p1.add(d1.charAt(i));
+        }
+        String e=""; 
+        String eq="";
+        for(int i=0;i<l.size();i++)
+        {
+            if(p.size()!=0&&p1.size()!=0)
+            {
+                e=e+p1.get(0);
+                e=e+p.get(0);
+                p1.remove(0);
+                p.remove(0);
+            }
+            if(p.size()!=0&&p1.size()==0)
+            {
+                e=e+p.get(0);
+                p.remove(0);
+            }
+            if(p1.size()!=0&&p.size()==0)
+            {
+                e=e+p1.get(0);
+                p1.remove(0);
+            }
+        }
+        ArrayList<Character> pp=new ArrayList<>();
+        for(int i=0;i<d.length();i++)
+        {
+            pp.add(d.charAt(i));
+        }
+        ArrayList<Character> pw=new ArrayList<>();
+        for(int i=0;i<d1.length();i++)
+        {
+            pw.add(d1.charAt(i));
+        }
+        
+ //unique sequence1
+ import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        ArrayList<Integer> s=new ArrayList();
+        while(sc.hasNext()) {
+            int a1=sc.nextInt() ;
+            s.add(a1); 
+}
+        Collections.sort(s);
+        HashMap<Integer,Integer> h=new HashMap<>();
+        for(int i=0;i<s.size();i++)
+        {
+            h.put(s.get(i),h.getOrDefault(s.get(i),0)+1);
+        }
+        ArrayList<Integer> l=new ArrayList<>();
+        for(Map.Entry<Integer,Integer> d:h.entrySet())
+        {
+          
+            l.add(d.getValue());
+            
+        }
+        Collections.sort(l);
+        int d=0;
+        while(d<a)
+        {
+            for(int i=0;i<l.size()&&d<a;i++)
+            {
+                while(l.get(i)>0&&d<a)
+                {
+                    int z=l.get(i);
+                    l.set(i,z-1);
+                    d++;
+                    
+                }
+            }
+        }
+        int c=0;
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i)>0)
+            {
+                c++;
+            }
+        }
+        System.out.println(c);
+        }
+}
+//pronic number
+import math
+s=input()
+l=[]
+for i in range(0,len(s)):
+    for j in range(i,len(s)):
+        n=int(s[i:j+1])
+        a=math.floor(math.sqrt(n))
+        if(a*(a+1)==n):
+            if(n!=0):
+                l.append(n)
+l1=sorted(set(l))
+if(len(l1)==0):
+    print(-1)
+else:
+    for i in range(0,len(l1)-1):
+        print(l1[i],end=",")
+    print(l1[len(l1)-1])
