@@ -103,3 +103,37 @@ public class Main {
         System.out.println(term(n));
     }
 }
+
+//string palindrome
+import java.io.*;
+import java.util.*;
+public class Solution {
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.nextLine();
+        String c="";
+        for(int i=0;i<a.length();i++)
+        {
+            if(Character.isLetter(a.charAt(i)))
+            {
+                c=c+Character.toLowerCase(a.charAt(i));
+            }
+            else
+            {
+                c=c+a.charAt(i);
+            }
+        }
+        StringBuffer s=new StringBuffer(c);
+        s.reverse();
+        
+        String b=s.toString();
+        if(b.equals(c))
+        {
+            System.out.println("Palindrome");
+        }
+        else
+        {
+            System.out.println("Not Palindrome");
+        }
+     }
+}
