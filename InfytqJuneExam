@@ -229,3 +229,36 @@ public class Main {
         System.out.println(e+w);
         }
     }
+    
+    //anti palindrome
+    import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        sc.nextLine();
+        for(int i=0;i<a;i++)
+        {
+            String s=sc.nextLine();
+            StringBuilder s1=new StringBuilder(s);
+            s1.reverse();
+            String s2=s1.toString();
+            if(s.equals(s2))
+            {
+                System.out.println(-1);
+            }
+            else
+            {
+                char c[]=s.toCharArray();
+                Arrays.sort(c);
+                String n="";
+                for(int j=0;j<c.length;j++)
+                {
+                    n+=c[j];
+                }
+                System.out.println(n);
+            }
+        }
+    }
+ }
