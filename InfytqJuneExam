@@ -153,3 +153,79 @@ else:
     for i in range(0,len(l1)-1):
         print(l1[i],end=",")
     print(l1[len(l1)-1])
+    
+//import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> l=new ArrayList<>();
+        while(sc.hasNextInt())
+        {
+            int k=sc.nextInt();
+            l.add(k);
+        }
+        String a="";
+        int c=0;
+    
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i)==5)
+            {
+                for(int j=i;j<l.size();j++)
+                {
+                    a=a+l.get(j);
+                    if(l.get(j)==8)
+                    {
+                        a=a+l.get(j);
+                        i++;
+                        break;
+                        
+                    }
+                    else
+                    {
+                        
+                        i++;
+                    }
+                }
+            }
+        }
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i)==5)
+            {
+                break;
+            }
+            else
+            {
+                c=c+l.get(i);
+            }
+        }
+        int y=0;
+        for(int i=l.size()-1;i>0;i--)
+        {
+            if(l.get(i)==8)
+            {
+                break;
+            }
+            else
+            {
+                y=y+l.get(i);
+            }
+        }
+        int w=c+y;
+        String dd=a.substring(0,a.length()-1);
+        int e=Integer.parseInt(dd);
+        for(int i=l.size()-1;i<0;i--)
+        {
+            if(l.get(i)!=8)
+            {
+                c=c+l.get(i);
+            }
+            else
+            {
+                break;
+            }
+        }
+        System.out.println(e+w);
+        }
+    }
